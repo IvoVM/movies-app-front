@@ -1,0 +1,27 @@
+<nav class="navbar fixed-top p-0">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink=""> SHOWTIME </a>
+    <ul class="navbar-nav ms-auto">
+      <ng-container *ngIf="!isLoggedIn()">
+        <!-- Mostrar estos elementos si el usuario no está autenticado -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="login">Login</a>
+        </li>
+      </ng-container>
+      <ng-container *ngIf="isLoggedIn()">
+        <!-- Mostrar estos elementos si el usuario está autenticado -->
+        <li class="nav-item">
+          <button mat-button [matMenuTriggerFor]="menu" class="text-white lead">
+            <mat-icon>account_circle</mat-icon>
+            {{ getUsername() }}
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>exit_to_app</mat-icon> Logout
+            </button>
+          </mat-menu>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,19 @@
+.register {
+    max-width: 330px;
+  }
+  .register mat-form-field,
+  .register button {
+    width: 80%;
+  }
+  .registerPath {
+    cursor: pointer;
+    background-color: #3f51b5;
+    color: white;
+    border-radius: 2rem;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .spinner {
+    left: 9rem;
+  }

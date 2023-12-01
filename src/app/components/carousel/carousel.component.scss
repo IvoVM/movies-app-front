@@ -1,0 +1,23 @@
+.carousel-inner {
+  color: #ffffff;
+
+  .carousel-item img {
+    height: 750px;
+    object-fit: cover;
+    width: auto;
+  }
+
+  .carousel-caption {
+    h2 {
+      color: #e50914;
+      font-weight: bold;
+      font-size: 30px;
+    }
+  }
+}
+
+.carousel-dark .carousel-control-prev-icon,
+.carousel-dark .carousel-control-next-icon {
+  color: #fff !important;
+  filter: none;
+}

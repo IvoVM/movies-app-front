@@ -1,0 +1,10 @@
+<div class="home">
+  <div *ngIf="isLoading" class="spinner-container">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+
+  <div *ngIf="!isLoading">
+    <app-carousel [bannerResult]="MoviesCarrousel"></app-carousel>
+    <app-movie-card [Cards]="MoviesCards"></app-movie-card>
+  </div>
+</div>

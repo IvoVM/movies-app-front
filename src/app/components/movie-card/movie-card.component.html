@@ -1,0 +1,56 @@
+<div class="mt-3">
+  <h5 class="text-white">Last Movies</h5>
+
+  <div class="filters">
+    <div class="mb-3">
+      <input
+        type="text"
+        [(ngModel)]="filterTitle"
+        placeholder="Filter by Title"
+        class="form-control"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        type="number"
+        [(ngModel)]="filterYear"
+        placeholder="Filter by Year"
+        class="form-control"
+      />
+    </div>
+  </div>
+
+  <div class="cards">
+    <ng-container
+      *ngFor="
+        let card of Cards
+          | filterByTitle : filterTitle
+          | filterByDate : filterYear
+      "
+    >
+      <div class="card-container">
+        <img
+          src="{{ card.img }}"
+          class="largeposter mx-2 rowimg"
+          alt="..."
+          [routerLink]="['movie', card.title, card._id]"
+        />
+        <div class="overlay">
+          <ng-container *ngIf="!isInWatchlist(card)">
+            <button
+              class="btn btn-dark btn-add-to-watchlist"
+              (click)="addToWatchlist(card)"
+            >
+              Add to Watchlist
+            </button>
+          </ng-container>
+          <ng-container *ngIf="isInWatchlist(card)">
+            <button class="btn btn-primary btn-add-to-watchlist">
+              Already on Watch List
+            </button>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
